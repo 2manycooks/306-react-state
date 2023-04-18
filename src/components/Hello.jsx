@@ -6,28 +6,32 @@ export default class Moodtracker extends Component {
 
     state = {
         name: "Gabe",
-        height: 10000000000,
         moodPoints: 1,
-        property: this.props.prop
     }
 
     
 
     increaseMood = () => {
-        console.log('Increasing Mood!')
-
-        this.setState((prevState) => {
-            return {
-                moodPoints: prevState.moodPoints + 1,
-                name: prevState.name + "e"
+        if (this.state.moodPoints < 10) {
+            this.setState((prevState) => {
+                return {
+                    moodPoints: prevState.moodPoints + 1,
+                }
             }
-        })
+        )} else {
+            this.setState(() => {
+                return {
+                    moodPoints: 1
+                }
+            })
+        }
     }
 
     handleIncreaseToTen = () => {
         this.setState(() => {
             return {
-                moodPoints: 10
+                moodPoints: 10,
+                height: 1000000000000
             }
         })
     }
